@@ -12,11 +12,11 @@ const pool = new Pool({
 
 app.get('/api/test-data', async (req, res) => {
     // Get parameters from query string with defaults
-    const numRecords = parseInt(req.query.records) || 10;
-    const textParam = req.query.text || 'default';
-    const intParam = parseInt(req.query.int) || 0;
-    const tsParam = req.query.timestamp || new Date().toISOString();
-    const boolParam = (req.query.bool || 'true').toLowerCase() === 'true';
+    const numRecords = parseInt(req.query.p_records);
+    const textParam = req.query.p_text_param;
+    const intParam = parseInt(req.query.p_int_param);
+    const tsParam = req.query.p_ts_param;
+    const boolParam = req.query.p_bool_param.toLowerCase() === 'true';
 
     try {
         const result = await pool.query(

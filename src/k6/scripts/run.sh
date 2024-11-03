@@ -2,6 +2,7 @@
 
 STAMP=$(date +"%Y%m%d%H%M")
 
+mkdir -p /results
 mkdir -p /results/$STAMP
 echo "Results will be saved in /results/$STAMP"
 
@@ -17,16 +18,16 @@ if ls /results/$STAMP/*.csv 1> /dev/null 2>&1; then
     for file in /results/$STAMP/*.csv; do
         echo "Processing file: $file"
         filename=$(basename "$file" .csv)
-        echo "Filename extracted: $filename"
         content=$(cat "$file")
         echo "Content read: $content"
         if [ ! -z "$content" ]; then
             echo "$filename,$content" >> "$OUTPUT_FILE"
-            echo "Line written to output file"
         else
             echo "Warning: $file is empty"
         fi
     done
+
+    rm /results/$STAMP/*.csv
 else
     echo "No CSV files found in /results/$STAMP/"
 fi

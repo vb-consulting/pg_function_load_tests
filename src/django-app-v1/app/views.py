@@ -6,11 +6,11 @@ from datetime import datetime
 @api_view(['GET'])
 def get_test_data(request):
     # Get parameters from query string with defaults
-    num_records = int(request.GET.get('records', 10))
-    text_param = request.GET.get('text', 'default')
-    int_param = int(request.GET.get('int', 0))
-    ts_param = request.GET.get('timestamp', datetime.now().isoformat())
-    bool_param = request.GET.get('bool', 'true').lower() == 'true'
+    num_records = int(request.GET.get('p_records'))
+    text_param = request.GET.get('p_text_param')
+    int_param = int(request.GET.get('p_int_param'))
+    ts_param = request.GET.get('p_ts_param')
+    bool_param = request.GET.get('p_bool_param').lower() == 'true'
     
     with connection.cursor() as cursor:
         cursor.execute(
