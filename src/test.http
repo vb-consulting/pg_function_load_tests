@@ -1,0 +1,16 @@
+// express-app-v1
+GET http://localhost:3000/api/test-data?records=3&text=Hello%20World&int=12345&timestamp=2021-01-01T00:00:00.000Z&bool=true
+
+###
+
+GET http://localhost:3000/test/
+
+###
+
+// django-app-v1
+GET http://localhost:8000/api/test-data?records=3&text=Hello%20World&int=12345&timestamp=2021-01-01T00:00:00.000Z&bool=true
+
+###
+
+GET http://localhost:8000/test/
+

@@ -1,0 +1,62 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpass
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U testuser -d testdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  django-app-v1:
+    build: 
+      context: ./django-app-v1
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  express-app-v1:
+    build:
+      context: ./express-app-v1
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  test:
+    image: grafana/k6:latest
+    volumes:
+      - ./k6/scripts:/scripts
+      - ./k6/results:/results
+    environment:
+      - RECORDS=10
+      - DURATION=5s
+      - TARGET=2
+    depends_on:
+      - django-app-v1
+      - express-app-v1
+    entrypoint: ["/bin/sh"]
+    command: ["-c", "tail -f /dev/null"]
+
