@@ -17,9 +17,9 @@ services:
     networks:
       - test_network
 
-  django-app-v1:
+  django-app-v501:
     build: 
-      context: ./django-app-v1
+      context: ./django-app-v501
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -34,9 +34,9 @@ services:
     networks:
       - test_network
 
-  express-app-v1:
+  express-app-v4182:
     build:
-      context: ./express-app-v1
+      context: ./express-app-v4182
       dockerfile: Dockerfile
     ports:
       - "3100:3100"
@@ -51,7 +51,7 @@ services:
     networks:
       - test_network
 
-  postgrest-v120203:
+  postgrest-v1223:
     image: postgrest/postgrest:v12.2.3
     ports:
       - "3000:3000"
@@ -59,9 +59,9 @@ services:
       PGRST_DB_URI: postgres://testuser:testpass@postgres:5432/testdb
       PGRST_DB_SCHEMA: public
       PGRST_DB_ANON_ROLE: testuser
-      PGRST_SERVER_PROXY_URI: "http://postgrest-v120203:3000" 
+      PGRST_SERVER_PROXY_URI: "http://postgrest-v1223:3000" 
     volumes:
-      - ./postgrest-v120203/postgrest.conf:/etc/postgrest.conf
+      - ./postgrest-v1223/postgrest.conf:/etc/postgrest.conf
     depends_on:
       postgres:
         condition: service_healthy
@@ -75,12 +75,12 @@ services:
       - ./k6/results:/results
     environment:
       - RECORDS=10
-      - DURATION=5s
+      - DURATION=2s
       - TARGET=2
     depends_on:
-      - django-app-v1
-      - express-app-v1
-      - postgrest-v120203
+      - django-app-v501
+      - express-app-v4182
+      - postgrest-v1223
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:
