@@ -68,6 +68,40 @@ services:
     networks:
       - test_network
 
+  fastapi-app-v01032:
+    build: 
+      context: ./fastapi-app-v01032
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  fastify-app-v4261:
+    build:
+      context: ./fastify-app-v4261
+      dockerfile: Dockerfile
+    ports:
+      - "3101:3101"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
   test:
     image: grafana/k6:latest
     volumes:
@@ -81,6 +115,8 @@ services:
       - django-app-v501
       - express-app-v4182
       - postgrest-v1223
+      - fastapi-app-v01032
+      - fastify-app-v4261
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:

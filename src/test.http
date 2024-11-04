@@ -12,3 +12,13 @@ GET http://localhost:8000/api/test-data?_records=3&_text_param=Hello%20World&_in
 GET http://localhost:3000/rpc/test_func_v1?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
 
 ###
+
+// fastapi-app-v01032
+GET http://localhost:8001/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###
+
+// fastify-app-v4261
+GET http://localhost:3101/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###

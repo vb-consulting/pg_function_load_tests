@@ -1,4 +1,4 @@
-# Django Application V1:
+# Python Django Application
 
 - Python 3.12
 - Django 5.0.1

@@ -1,4 +1,4 @@
-# NodeJS Express Application V1:
+# NodeJS Express Application
 
 - NodeJS 20
 - Express 4.18.2

@@ -10,6 +10,7 @@ echo "Starting k6 tests, output will be saved in /results/$STAMP"
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=django-app-v501 -e PORT=8000
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=express-app-v4182 -e PORT=3100
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=postgrest-v1223 -e PORT=3000 -e REQ_PATH=/rpc/test_func_v1
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=fastapi-app-v01032 -e PORT=8001
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"
