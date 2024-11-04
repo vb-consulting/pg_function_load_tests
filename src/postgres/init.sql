@@ -37,3 +37,5 @@ select
 from
     generate_series(1, _records) as i
 $$;
+
+comment on function public.test_func_v1(int, text, int, timestamp, bool) is 'HTTP GET /api/test-data';

@@ -1,10 +1,24 @@
 from fastapi import FastAPI, Query, HTTPException
 import asyncpg
 import os
-from datetime import datetime
-from datetime import timezone
+import logging
+import uvicorn
 
-app = FastAPI()
+# Disable FastAPI logging
+logging.getLogger("fastapi").setLevel(logging.WARNING)
+
+# Disable uvicorn access log
+logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
+
+# Disable uvicorn default logger
+logging.getLogger("uvicorn").setLevel(logging.WARNING)
+
+app = FastAPI(
+    # Disable OpenAPI documentation
+    docs_url=None,
+    redoc_url=None,
+    openapi_url=None,
+)
 
 DATABASE_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}"
 pool = None
@@ -39,7 +53,14 @@ async def get_test_data(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Running the FastAPI server (usually in uvicorn for deployment)
+# Running the FastAPI server with disabled logging
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    uvicorn_config = uvicorn.Config(
+        app,
+        host="0.0.0.0",
+        port=8001,
+        log_level="critical",  # Only show critical errors
+        access_log=False,      # Disable access log
+    )
+    server = uvicorn.Server(uvicorn_config)
+    server.run()
