@@ -1,9 +1,14 @@
 // express-app-v1
-GET http://localhost:3000/api/test-data?records=3&text=Hello%20World&int=12345&timestamp=2021-01-01T00:00:00.000Z&bool=true
+GET http://localhost:3100/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
 
 ###
 
 // django-app-v1
-GET http://localhost:8000/api/test-data?records=3&text=Hello%20World&int=12345&timestamp=2021-01-01T00:00:00.000Z&bool=true
+GET http://localhost:8000/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###
+
+// postgrest-v120203
+GET http://localhost:3000/rpc/test_func_v1?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
 
 ###

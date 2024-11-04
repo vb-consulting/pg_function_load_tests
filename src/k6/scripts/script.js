@@ -11,11 +11,11 @@ const target = Number(__ENV.TARGET || "100");
 
 const url = 'http://' + tag + ':' + __ENV.PORT + (__ENV.REQ_PATH ? __ENV.REQ_PATH : '/api/test-data') + "?" + 
     Object.entries({
-        p_records: records,
-        p_text_param: 'ABCDEFGHIJKLMNOPRSTUVWXYZ',
-        p_int_param: 1234567890,
-        p_ts_param: new Date('2014-12-31').toISOString(),
-        p_bool_param: true
+        _records: records,
+        _text_param: 'ABCDEFGHIJKLMNOPRSTUVWXYZ',
+        _int_param: 1234567890,
+        _ts_param: new Date('2014-12-31').toISOString(),
+        _bool_param: true
     })
     .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
     .join('&');

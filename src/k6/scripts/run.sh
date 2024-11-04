@@ -8,7 +8,8 @@ echo "Results will be saved in /results/$STAMP"
 
 echo "Starting k6 tests, output will be saved in /results/$STAMP"
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=django-app-v1 -e PORT=8000
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=express-app-v1 -e PORT=3000
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=express-app-v1 -e PORT=3100
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=postgrest-v120203 -e PORT=3000 -e REQ_PATH=/rpc/test_func_v1
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"

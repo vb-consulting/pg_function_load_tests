@@ -12,15 +12,15 @@ const pool = new Pool({
 
 app.get('/api/test-data', async (req, res) => {
     // Get parameters from query string with defaults
-    const numRecords = parseInt(req.query.p_records);
-    const textParam = req.query.p_text_param;
-    const intParam = parseInt(req.query.p_int_param);
-    const tsParam = req.query.p_ts_param;
-    const boolParam = req.query.p_bool_param.toLowerCase() === 'true';
+    const numRecords = parseInt(req.query._records);
+    const textParam = req.query._text_param;
+    const intParam = parseInt(req.query._int_param);
+    const tsParam = req.query._ts_param;
+    const boolParam = req.query._bool_param.toLowerCase() === 'true';
 
     try {
         const result = await pool.query(
-            `select id1, foo1, bar1, datetime1, id2, foo2, bar2, datetime2, long_foo_bar, is_foobar from test_func_v1($1, $2, $3, $4::timestamp, $5)`, 
+            `select id1, foo1, bar1, datetime1, id2, foo2, bar2, datetime2, long_foo_bar, is_foobar from public.test_func_v1($1, $2, $3, $4::timestamp, $5)`, 
             [numRecords, textParam, intParam, tsParam, boolParam]);
         res.json(result.rows);
     } catch (err) {
@@ -29,7 +29,7 @@ app.get('/api/test-data', async (req, res) => {
     }
 });
 
-const port = 3000;
+const port = 3100;
 app.listen(port, () => {
     console.log(`Express app listening at http://localhost:${port}`);
 });

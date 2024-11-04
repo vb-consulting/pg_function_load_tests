@@ -8,7 +8,7 @@ Function
 ```
 git clone https://github.com/vb-consulting/pg_function_load_tests.git
 cd src
-docker-compose up --build
+docker-compose down && docker-compose up --build
 ```
 
 Please wait a few seconds for all services to initialize properly (health check isn't implemented yet), and then run from the same directory:
