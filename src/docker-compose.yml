@@ -18,9 +18,9 @@ services:
     networks:
       - test_network
 
-  django-app-v501:
+  django-app-v509:
     build: 
-      context: ./django-app-v501
+      context: ./django-app-v509
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -103,24 +103,12 @@ services:
     networks:
       - test_network
 
-  npgsqlrest-aot-v210:
-    image: vbilopav/npgsqlrest:v2.1.0
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./npgsqlrest-aot-v210/appsettings.json:/app/appsettings.json
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - test_network
-
-  npgsqlrest-aot-v220:
-    image: vbilopav/npgsqlrest:v2.2.0
+  npgsqlrest-aot-v221:
+    image: vbilopav/npgsqlrest:v2.2.1
     ports:
       - "5001:5001"
     volumes:
-      - ./npgsqlrest-aot-v220/appsettings.json:/app/appsettings.json
+      - ./npgsqlrest-aot-v221/appsettings.json:/app/appsettings.json
     depends_on:
       postgres:
         condition: service_healthy
@@ -137,13 +125,12 @@ services:
       - DURATION=60s
       - TARGET=100
     depends_on:
-      - django-app-v501
+      - django-app-v509
       - express-app-v4182
       - postgrest-v1223
       - fastapi-app-v01032
       - fastify-app-v4261
-      - npgsqlrest-aot-v210
-      - npgsqlrest-aot-v220
+      - npgsqlrest-aot-v221
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:

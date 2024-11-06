@@ -19,7 +19,6 @@ returns table(
 )
 stable
 parallel safe
-cost 200
 language sql
 as
 $$

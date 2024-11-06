@@ -8,8 +8,8 @@ echo "Results will be saved in /results/$STAMP"
 
 echo "Starting k6 tests, output will be saved in /results/$STAMP"
 
-echo "Starting django-app-v501..."
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=django-app-v501 -e PORT=8000
+echo "Starting django-app-v509..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=django-app-v509 -e PORT=8000
 
 sleep 2
 echo "Starting express-app-v4182..."
@@ -32,8 +32,8 @@ echo "Starting npgsqlrest-aot-v210..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v210 -e PORT=5000
 
 sleep 2
-echo "Starting npgsqlrest-aot-v220..."
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v220 -e PORT=5001
+echo "Starting npgsqlrest-aot-v221..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v221 -e PORT=5001
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"

@@ -3,7 +3,7 @@ GET http://localhost:3100/api/test-data?_records=3&_text_param=Hello%20World&_in
 
 ###
 
-// django-app-v501
+// django-app-v509
 GET http://localhost:8000/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
 
 ###
@@ -23,12 +23,7 @@ GET http://localhost:3101/api/test-data?_records=3&_text_param=Hello%20World&_in
 
 ###
 
-// npgsqlrest-aot-v210
-GET http://localhost:5000/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
-
-###
-
-// npgsqlrest-aot-v220
+// npgsqlrest-aot-v221
 GET http://localhost:5001/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
 
 ###
