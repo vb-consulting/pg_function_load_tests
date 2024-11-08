@@ -18,9 +18,9 @@ services:
     networks:
       - test_network
 
-  django-app-v509:
+  django-app-v5.0.9:
     build: 
-      context: ./django-app-v509
+      context: ./django-app-v5.0.9
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -35,9 +35,9 @@ services:
     networks:
       - test_network
 
-  express-app-v4182:
+  express-app-v4.18.2:
     build:
-      context: ./express-app-v4182
+      context: ./express-app-v4.18.2
       dockerfile: Dockerfile
     ports:
       - "3100:3100"
@@ -52,7 +52,7 @@ services:
     networks:
       - test_network
 
-  postgrest-v1223:
+  postgrest-v12.2.3:
     image: postgrest/postgrest:v12.2.3
     ports:
       - "3000:3000"
@@ -60,18 +60,18 @@ services:
       PGRST_DB_URI: postgres://testuser:testpass@postgres:5432/testdb
       PGRST_DB_SCHEMA: public
       PGRST_DB_ANON_ROLE: testuser
-      PGRST_SERVER_PROXY_URI: "http://postgrest-v1223:3000" 
+      PGRST_SERVER_PROXY_URI: "http://postgrest-v12.2.3:3000" 
     volumes:
-      - ./postgrest-v1223/postgrest.conf:/etc/postgrest.conf
+      - ./postgrest-v12.2.3/postgrest.conf:/etc/postgrest.conf
     depends_on:
       postgres:
         condition: service_healthy
     networks:
       - test_network
 
-  fastapi-app-v01032:
+  fastapi-app-v0.103.2:
     build: 
-      context: ./fastapi-app-v01032
+      context: ./fastapi-app-v0.103.2
       dockerfile: Dockerfile
     ports:
       - "8001:8001"
@@ -86,9 +86,9 @@ services:
     networks:
       - test_network
 
-  fastify-app-v4261:
+  fastify-app-v4.26.1:
     build:
-      context: ./fastify-app-v4261
+      context: ./fastify-app-v4.26.1
       dockerfile: Dockerfile
     ports:
       - "3101:3101"
@@ -103,9 +103,9 @@ services:
     networks:
       - test_network
 
-  deno-app-v1402:
+  deno-app-v1.40.2:
     build:
-      context: ./deno-app-v1402
+      context: ./deno-app-v1.40.2
       dockerfile: Dockerfile
     ports:
       - "3102:3102"
@@ -120,9 +120,9 @@ services:
     networks:
       - test_network
 
-  phpswoole-app-8313:
+  swoole-php-app-8.3.13:
     build:
-      context: ./phpswoole-app-8313
+      context: ./swoole-php-app-8.3.13
       dockerfile: Dockerfile
     ports:
       - "3103:3103"
@@ -137,12 +137,12 @@ services:
     networks:
       - test_network
 
-  npgsqlrest-aot-v221:
+  npgsqlrest-aot-v2.2.1:
     image: vbilopav/npgsqlrest:v2.2.1
     ports:
       - "5001:5001"
     volumes:
-      - ./npgsqlrest-aot-v221/appsettings.json:/app/appsettings.json
+      - ./npgsqlrest-aot-v2.2.1/appsettings.json:/app/appsettings.json
     depends_on:
       postgres:
         condition: service_healthy
@@ -159,14 +159,14 @@ services:
       - DURATION=60s
       - TARGET=100
     depends_on:
-      - django-app-v509
-      - express-app-v4182
-      - postgrest-v1223
-      - fastapi-app-v01032
-      - fastify-app-v4261
-      - deno-app-v1402
-      - phpswoole-app-8313
-      - npgsqlrest-aot-v221
+      - django-app-v5.0.9
+      - express-app-v4.18.2
+      - postgrest-v12.2.3
+      - fastapi-app-v0.103.2
+      - fastify-app-v4.26.1
+      - deno-app-v1.40.2
+      - swoole-php-app-8.3.13
+      - npgsqlrest-aot-v2.2.1
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:
