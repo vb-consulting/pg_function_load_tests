@@ -140,9 +140,21 @@ services:
   npgsqlrest-aot-v2.2.1:
     image: vbilopav/npgsqlrest:v2.2.1
     ports:
-      - "5001:5001"
+      - "5000:5000"
     volumes:
       - ./npgsqlrest-aot-v2.2.1/appsettings.json:/app/appsettings.json
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net8-npgsqlrest-jit-v2.12.1:
+    build:
+      context: ./net8-npgsqlrest-jit-v2.12.1
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
     depends_on:
       postgres:
         condition: service_healthy
@@ -167,6 +179,7 @@ services:
       - deno-app-v1.40.2
       - swoole-php-app-8.3.13
       - npgsqlrest-aot-v2.2.1
+      - net8-npgsqlrest-jit-v2.12.1
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6547123-88B2-4608-AFE9-24AF4F3A5418}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "src\net8-npgsqlrest-jit-v2.12.1\Project.csproj", "{69DDC0DC-4421-4A65-A43E-9003D6B04641}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69DDC0DC-4421-4A65-A43E-9003D6B04641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69DDC0DC-4421-4A65-A43E-9003D6B04641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69DDC0DC-4421-4A65-A43E-9003D6B04641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69DDC0DC-4421-4A65-A43E-9003D6B04641}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69DDC0DC-4421-4A65-A43E-9003D6B04641} = {F6547123-88B2-4608-AFE9-24AF4F3A5418}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BD1CE7C-6290-4F06-B02A-7ED0AD575DB8}
+	EndGlobalSection
+EndGlobal

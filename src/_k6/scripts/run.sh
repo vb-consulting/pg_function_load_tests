@@ -36,12 +36,13 @@ echo "Starting swoole-php-app-8.3.13..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=swoole-php-app-8.3.13 -e PORT=3103
 
 sleep 2
-echo "Starting npgsqlrest-aot-v210..."
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v210 -e PORT=5000
+echo "Starting npgsqlrest-aot-v2.2.1..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v2.2.1 -e PORT=5000
 
 sleep 2
-echo "Starting npgsqlrest-aot-v2.2.1..."
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v2.2.1 -e PORT=5001
+echo "Starting net8-npgsqlrest-jit-v2.12.1..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net8-npgsqlrest-jit-v2.12.1 -e PORT=5001
+
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"
