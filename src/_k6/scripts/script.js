@@ -1,7 +1,6 @@
 import { check } from "k6";
 import http from "k6/http";
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.2/index.js';
-// import { open } from 'k6/experimental/fs';
 
 const stamp = __ENV.STAMP;
 const tag = __ENV.TAG;

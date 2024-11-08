@@ -28,6 +28,10 @@ echo "Starting fastify-app-v4261..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=fastify-app-v4261 -e PORT=3101
 
 sleep 2
+echo "Starting deno-app-v1402..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=deno-app-v1402-e PORT=3102
+
+sleep 2
 echo "Starting npgsqlrest-aot-v210..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v210 -e PORT=5000
 

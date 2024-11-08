@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./_postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U testuser -d testdb"]
       interval: 5s
@@ -103,6 +103,23 @@ services:
     networks:
       - test_network
 
+  deno-app-v1402:
+    build:
+      context: ./deno-app-v1402
+      dockerfile: Dockerfile
+    ports:
+      - "3102:3102"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
   npgsqlrest-aot-v221:
     image: vbilopav/npgsqlrest:v2.2.1
     ports:
@@ -118,8 +135,8 @@ services:
   test:
     image: grafana/k6:latest
     volumes:
-      - ./k6/scripts:/scripts
-      - ./k6/results:/results
+      - ./_k6/scripts:/scripts
+      - ./_k6/results:/results
     environment:
       - RECORDS=10
       - DURATION=60s
@@ -130,6 +147,7 @@ services:
       - postgrest-v1223
       - fastapi-app-v01032
       - fastify-app-v4261
+      - deno-app-v1402
       - npgsqlrest-aot-v221
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
