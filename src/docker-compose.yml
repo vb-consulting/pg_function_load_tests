@@ -120,6 +120,23 @@ services:
     networks:
       - test_network
 
+  phpswoole-app-8313:
+    build:
+      context: ./phpswoole-app-8313
+      dockerfile: Dockerfile
+    ports:
+      - "3103:3103"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
   npgsqlrest-aot-v221:
     image: vbilopav/npgsqlrest:v2.2.1
     ports:
@@ -148,6 +165,7 @@ services:
       - fastapi-app-v01032
       - fastify-app-v4261
       - deno-app-v1402
+      - phpswoole-app-8313
       - npgsqlrest-aot-v221
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
