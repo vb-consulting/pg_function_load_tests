@@ -43,3 +43,22 @@ GET http://localhost:5001/api/test-data?_records=3&_text_param=Hello%20World&_in
 
 ###
 
+// net8-minapi-ef-jit-v8.0.10
+GET http://localhost:5002/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###
+
+// net8-minapi-dapper-jit-v2.1.35
+GET http://localhost:5003/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###
+
+// net8-minapi-norm-jit-v5.4.0
+GET http://localhost:5004/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###
+
+// net8-minapi-ado-jit-v8.0.5
+GET http://localhost:5005/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###

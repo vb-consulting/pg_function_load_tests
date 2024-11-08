@@ -43,6 +43,21 @@ sleep 2
 echo "Starting net8-npgsqlrest-jit-v2.12.1..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net8-npgsqlrest-jit-v2.12.1 -e PORT=5001
 
+sleep 2
+echo "Starting net8-minapi-ef-jit-v8.0.10..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net8-minapi-ef-jit-v8.0.10 -e PORT=5002
+
+sleep 2
+echo "Starting net8-minapi-dapper-jit-v2.1.35..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net8-minapi-dapper-jit-v2.1.35 -e PORT=5003
+
+sleep 2
+echo "Starting net8-minapi-norm-jit-v5.4.0..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net8-minapi-norm-jit-v5.4.0 -e PORT=5004
+
+sleep 2
+echo "Starting net8-minapi-ado-jit-v8.0.5..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net8-minapi-ado-jit-v8.0.5 -e PORT=5005
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"

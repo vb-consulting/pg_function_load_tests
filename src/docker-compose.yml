@@ -161,6 +161,54 @@ services:
     networks:
       - test_network
 
+  net8-minapi-ef-jit-v8.0.10:
+    build:
+      context: ./net8-minapi-ef-jit-v8.0.10
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net8-minapi-dapper-jit-v2.1.35:
+    build:
+      context: ./net8-minapi-dapper-jit-v2.1.35
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net8-minapi-norm-jit-v5.4.0:
+    build:
+      context: ./net8-minapi-norm-jit-v5.4.0
+      dockerfile: Dockerfile
+    ports:
+      - "5004:5004"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net8-minapi-ado-jit-v8.0.5:
+    build:
+      context: ./net8-minapi-ado-jit-v8.0.5
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
   test:
     image: grafana/k6:latest
     volumes:
@@ -180,6 +228,10 @@ services:
       - swoole-php-app-8.3.13
       - npgsqlrest-aot-v2.2.1
       - net8-npgsqlrest-jit-v2.12.1
+      - net8-minapi-ef-jit-v8.0.10
+      - net8-minapi-dapper-jit-v2.1.35
+      - net8-minapi-norm-jit-v5.4.0
+      - net8-minapi-ado-jit-v8.0.5
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:
