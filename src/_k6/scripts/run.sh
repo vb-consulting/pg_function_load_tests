@@ -60,9 +60,12 @@ echo "Starting net8-minapi-ado-jit-v8.0.5..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net8-minapi-ado-jit-v8.0.5 -e PORT=5005
 
 sleep 2
-echo "Starting go-app-v1.22..."
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=go-app-v1.22 -e PORT=5200
+echo "Starting go-app-v1.22.9..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=go-app-v1.22.9 -e PORT=5200
 
+sleep 2
+echo "Starting rust-app-v1.75.0..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=rust-app-v1.75.0 -e PORT=5300
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"

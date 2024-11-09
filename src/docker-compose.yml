@@ -209,15 +209,29 @@ services:
     networks:
       - test_network
 
-  go-app-v1.22:
+  go-app-v1.22.9:
     build:
-      context: ./go-app-v1.22
+      context: ./go-app-v1.22.9
       dockerfile: Dockerfile
     ports:
       - "5200:5200"
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - test_network
+
+  rust-app-v1.75.0:
+    build:
+      context: ./rust-app-v1.75.0
+      dockerfile: Dockerfile
+    ports:
+      - "5300:5300"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - RUST_LOG=warn
     networks:
       - test_network
 
@@ -244,7 +258,8 @@ services:
       - net8-minapi-dapper-jit-v2.1.35
       - net8-minapi-norm-jit-v5.4.0
       - net8-minapi-ado-jit-v8.0.5
-      - go-app-v1.22
+      - go-app-v1.22.9
+      - rust-app-v1.75.0
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:
