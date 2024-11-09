@@ -46,4 +46,8 @@ app.use(router.allowedMethods());
 
 const port = 3102;
 console.log(`Deno app listening at http://localhost:${port}`);
-await app.listen({ port });
+
+await app.listen({
+    port: 3102,
+    hostname: "0.0.0.0"
+});

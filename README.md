@@ -1,7 +1,6 @@
 # Load Performance Testing for Web APIs Returning a Single PostgreSQL Function
 
 This project performs load performance testing for Web APIs on different tech stack that will execute a single [PostgreSQL function](https://github.com/vb-consulting/pg_function_load_tests/blob/master/src/postgres/init.sql) and return the result.
-Function 
 
 ## Running Manually
 

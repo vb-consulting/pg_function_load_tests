@@ -7,6 +7,12 @@ Console.WriteLine($"Npgsql: {System.Reflection.Assembly.GetAssembly(typeof(Npgsq
 var builder = WebApplication.CreateSlimBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:5005");
 builder.Logging.SetMinimumLevel(LogLevel.Warning);
+builder.Services.AddScoped(sp =>
+{
+    var connection = new NpgsqlConnection("Host=postgres;Port=5432;Username=testuser;Password=testpass;Database=testdb");
+    connection.Open();
+    return connection;
+});
 var app = builder.Build();
 
 app.MapGet("/api/test-data", TestData.Get);
@@ -15,15 +21,14 @@ app.Run();
 
 public static class TestData
 {
-    public static IEnumerable<Result> Get(
+    public static async IAsyncEnumerable<Result> Get(
+        NpgsqlConnection connection,
         [FromQuery] int _records,
         [FromQuery] string _text_param,
         [FromQuery] int _int_param,
         [FromQuery] DateTime _ts_param,
         [FromQuery] bool _bool_param)
     {
-        using var connection = new NpgsqlConnection("Host=postgres;Port=5432;Username=testuser;Password=testpass;Database=testdb");
-        connection.Open();
         using var command = connection.CreateCommand();
         command.CommandText =
             """
@@ -36,8 +41,8 @@ public static class TestData
         command.Parameters.Add(new() { Value = _ts_param });
         command.Parameters.Add(new() { Value = _bool_param });
 
-        using var reader = command.ExecuteReader();
-        while (reader.Read())
+        using var reader = await command.ExecuteReaderAsync();
+        while (await reader.ReadAsync())
         {
             yield return new Result
             {
