@@ -27,9 +27,9 @@ sleep 2
 echo "Starting fastify-app-v4.26.1..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=fastify-app-v4.26.1 -e PORT=3101
 
-sleep 2
-echo "Starting deno-app-v1.40.2..."
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=deno-app-v1.40.2 -e PORT=3102
+# sleep 2
+# echo "Starting deno-app-v1.40.2..."
+# k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=deno-app-v1.40.2 -e PORT=3102
 
 sleep 2
 echo "Starting swoole-php-app-8.3.13..."
@@ -66,6 +66,10 @@ k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=go-app-v1.22.9 -e PORT=5200
 sleep 2
 echo "Starting rust-app-v1.75.0..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=rust-app-v1.75.0 -e PORT=5300
+
+sleep 2
+echo "Starting java21-spring-boot-v3.2.2..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=java21-spring-boot-v3.2.2 -e PORT=5400
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"

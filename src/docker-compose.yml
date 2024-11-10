@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:17-alpine
-    command: postgres -c 'max_connections=250'
+    command: postgres -c 'max_connections=1000'
     environment:
       POSTGRES_USER: testuser
       POSTGRES_PASSWORD: testpass
@@ -103,22 +103,22 @@ services:
     networks:
       - test_network
 
-  deno-app-v1.40.2:
-    build:
-      context: ./deno-app-v1.40.2
-      dockerfile: Dockerfile
-    ports:
-      - "3102:3102"
-    environment:
-      - DB_HOST=postgres
-      - DB_NAME=testdb
-      - DB_USER=testuser
-      - DB_PASSWORD=testpass
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - test_network
+  # deno-app-v1.40.2:
+  #   build:
+  #     context: ./deno-app-v1.40.2
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3102:3102"
+  #   environment:
+  #     - DB_HOST=postgres
+  #     - DB_NAME=testdb
+  #     - DB_USER=testuser
+  #     - DB_PASSWORD=testpass
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   networks:
+  #     - test_network
 
   swoole-php-app-8.3.13:
     build:
@@ -235,6 +235,23 @@ services:
     networks:
       - test_network
 
+  java21-spring-boot-v3.2.2:
+    build:
+      context: ./java21-spring-boot-v3.2.2
+      dockerfile: Dockerfile
+    ports:
+      - "5400:5400"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
   test:
     image: grafana/k6:latest
     volumes:
@@ -243,14 +260,14 @@ services:
     environment:
       - RECORDS=10
       - DURATION=60s
-      - TARGET=100
+      - TARGET=50
     depends_on:
       - django-app-v5.0.9
       - express-app-v4.18.2
       - postgrest-v12.2.3
       - fastapi-app-v0.103.2
       - fastify-app-v4.26.1
-      - deno-app-v1.40.2
+      # - deno-app-v1.40.2
       - swoole-php-app-8.3.13
       - npgsqlrest-aot-v2.2.1
       - net8-npgsqlrest-jit-v2.12.1
@@ -260,6 +277,7 @@ services:
       - net8-minapi-ado-jit-v8.0.5
       - go-app-v1.22.9
       - rust-app-v1.75.0
+      - java21-spring-boot-v3.2.2
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:

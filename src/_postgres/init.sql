@@ -18,7 +18,7 @@ returns table(
     is_foobar bool
 )
 stable
-parallel safe
+--parallel safe
 language sql
 as
 $$
@@ -38,3 +38,5 @@ from
 $$;
 
 comment on function public.test_func_v1(int, text, int, timestamp, bool) is 'HTTP GET /api/test-data';
+
+show max_connections;

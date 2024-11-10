@@ -2,13 +2,15 @@ import { check } from "k6";
 import http from "k6/http";
 import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.2/index.js';
 
-const stamp = __ENV.STAMP;
-const tag = __ENV.TAG;
-const records = Number(__ENV.RECORDS || "10")
-const duration = __ENV.DURATION || "60s";
-const target = Number(__ENV.TARGET || "100");
+const stamp = __ENV.STAMP.trim();
+const tag = __ENV.TAG.trim();
+const records = Number(__ENV.RECORDS.trim() || "10")
+const duration = __ENV.DURATION.trim() || "60s";
+const target = Number(__ENV.TARGET.trim() || "100");
+const port = __ENV.PORT.trim();
+const path = __ENV.REQ_PATH ? __ENV.REQ_PATH.trim() : '/api/test-data';
 
-const url = 'http://' + tag + ':' + __ENV.PORT + (__ENV.REQ_PATH ? __ENV.REQ_PATH : '/api/test-data') + "?" + 
+const url = 'http://' +  tag + ':' + port + path + "?" + 
     Object.entries({
         _records: records,
         _text_param: 'ABCDEFGHIJKLMNOPRSTUVWXYZ',
@@ -18,6 +20,8 @@ const url = 'http://' + tag + ':' + __ENV.PORT + (__ENV.REQ_PATH ? __ENV.REQ_PAT
     })
     .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
     .join('&');
+
+//console.log(`Running test with ${records} records for ${duration} at ${target} VUs on ${url}`);
 
 // define configuration
 export const options = {
