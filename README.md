@@ -20,7 +20,7 @@ Results will be saved to the `src/k6/results/` directory under the current times
 
 ## Results
 
-These are the preliminary results that will be conducted on my laptop until I find a suitable isolated server environment for testing.
+These are the preliminary results (conducted on my laptop until I find a suitable isolated server environment for testing).
 
 Test parameters:
 
