@@ -46,6 +46,10 @@ Test parameters:
 | rust-app-v1.75.0 | 4565 | 448.07314407487564 | 0 | [source](https://github.com/vb-consulting/pg_function_load_tests/tree/master/src/rust-app-v1.75.0) | [summary](https://github.com/vb-consulting/pg_function_load_tests/tree/master/src/_k6/results/202411101305/rust-app-v1.75.0_summary.txt) |
 | django-app-v5.0.9 | 3012 | 218.8683662805552 | 0 | [source](https://github.com/vb-consulting/pg_function_load_tests/tree/master/src/django-app-v5.0.9) | [summary](https://github.com/vb-consulting/pg_function_load_tests/tree/master/src/_k6/results/202411101305/django-app-v5.0.9_summary.txt) |
 
+Notes:
+
+- There is something wrong with [Deno service](https://github.com/vb-consulting/pg_function_load_tests/tree/master/src/deno-app-v1.40.2), couldn't make it work with K6 framework.
+- There is something wrong with [Rust service](https://github.com/vb-consulting/pg_function_load_tests/tree/master/src/rust-app-v1.75.0). It shouldn't be that slow.
 
 ## License
 
