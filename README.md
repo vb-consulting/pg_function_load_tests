@@ -1,6 +1,6 @@
 # Load Performance Testing for Web APIs Returning a Single PostgreSQL Function
 
-This project performs load performance testing for Web APIs on different tech stack that will execute a single [PostgreSQL function](https://github.com/vb-consulting/pg_function_load_tests/blob/master/src/postgres/init.sql) and return the result.
+This project performs load performance testing for Web APIs on different tech stacks that will execute a single [PostgreSQL function](https://github.com/vb-consulting/pg_function_load_tests/blob/master/src/postgres/init.sql) and return the result.
 
 ## Running Manually
 
@@ -16,17 +16,17 @@ Please wait a few seconds for all services to initialize properly (health check 
 docker-compose exec test /bin/sh /scripts/run.sh
 ```
 
-Results will be save to `src/k6/results/` directory under the current timestamp subdirectory.
+Results will be saved to the `src/k6/results/` directory under the current timestamp subdirectory.
 
 ## Results
 
-These are the preliminary results conductedon my laptop until I find the suitable isolated server enviorment for testing.
+These are the preliminary results that will be conducted on my laptop until I find a suitable isolated server environment for testing.
 
 Test parameters:
 
 - Function returns 25 records.
 - Test running for 10 seconds.
-- 100 simulated concurent users.
+- 100 simulated concurrent users.
 
 | service tag | total req. | req. per second | error rate | source link | summary link |
 | ----------- | ---------: | --------------: | ---------: | ----------: | -----------: |
