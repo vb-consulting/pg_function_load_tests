@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:17-alpine
-    command: postgres -c 'max_connections=1000'
+    command: postgres -c 'max_connections=5000'
     environment:
       POSTGRES_USER: testuser
       POSTGRES_PASSWORD: testpass
@@ -258,9 +258,9 @@ services:
       - ./_k6/scripts:/scripts
       - ./_k6/results:/results
     environment:
-      - RECORDS=10
-      - DURATION=60s
-      - TARGET=50
+      - RECORDS=25
+      - DURATION=10s
+      - TARGET=100
     depends_on:
       - django-app-v5.0.9
       - express-app-v4.18.2

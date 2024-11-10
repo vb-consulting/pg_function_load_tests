@@ -18,7 +18,6 @@ returns table(
     is_foobar bool
 )
 stable
---parallel safe
 language sql
 as
 $$
