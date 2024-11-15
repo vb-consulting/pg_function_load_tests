@@ -78,4 +78,9 @@ GET http://localhost:5400/api/test-data?_records=3&_text_param=Hello%20World&_in
 
 ###
 
+// perl-net-server-prefork
+GET http://localhost:8088/api/test-data?_records=3&_text_param=Hello%20World&_int_param=12345&_ts_param=2021-01-01T00:00:00.000Z&_bool_param=true
+
+###
+
 

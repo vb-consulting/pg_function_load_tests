@@ -71,6 +71,10 @@ sleep 2
 echo "Starting java21-spring-boot-v3.2.2..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=java21-spring-boot-v3.2.2 -e PORT=5400
 
+sleep 2
+echo "Starting perl-net-server-prefork..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=perl-net-server-prefork -e PORT=8088
+
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"
 echo "Processing results... Saving to $OUTPUT_FILE"
