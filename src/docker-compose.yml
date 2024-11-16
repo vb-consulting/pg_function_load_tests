@@ -252,6 +252,23 @@ services:
     networks:
       - test_network
 
+  perl-net-server-prefork:
+    build: 
+      context: ./perl-net-server-prefork
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8088"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
   test:
     image: grafana/k6:latest
     volumes:
@@ -278,6 +295,7 @@ services:
       - go-app-v1.22.9
       - rust-app-v1.75.0
       - java21-spring-boot-v3.2.2
+      - perl-net-server-prefork
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:
