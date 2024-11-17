@@ -6,6 +6,7 @@ This project performs load performance testing for Web APIs on different tech st
 
 ```
 git clone https://github.com/vb-consulting/pg_function_load_tests.git
+cd pg_function_load_tests
 cd src
 docker-compose down && docker-compose up --build
 ```

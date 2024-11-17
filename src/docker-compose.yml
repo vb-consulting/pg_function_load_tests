@@ -252,17 +252,89 @@ services:
     networks:
       - test_network
 
-  perl-net-server-prefork:
-    build: 
-      context: ./perl-net-server-prefork
+  # perl-net-server-prefork-v5.34:
+  #   build: 
+  #     context: ./perl-net-server-prefork-v5.34
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8088:8088"
+  #   environment:
+  #     - DB_HOST=postgres
+  #     - DB_NAME=testdb
+  #     - DB_USER=testuser
+  #     - DB_PASSWORD=testpass
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   networks:
+  #     - test_network
+
+  npgsqlrest-aot-v2.3.0:
+    image: vbilopav/npgsqlrest:v2.3.0
+    ports:
+      - "5500:5500"
+    volumes:
+      - ./npgsqlrest-aot-v2.3.0/appsettings.json:/app/appsettings.json
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net9-npgsqlrest-jit-v2.13.0:
+    build:
+      context: ./net9-npgsqlrest-jit-v2.13.0
       dockerfile: Dockerfile
     ports:
-      - "8088:8088"
-    environment:
-      - DB_HOST=postgres
-      - DB_NAME=testdb
-      - DB_USER=testuser
-      - DB_PASSWORD=testpass
+      - "5501:5501"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net9-minapi-ef-jit-v8.0.10:
+    build:
+      context: ./net9-minapi-ef-jit-v8.0.10
+      dockerfile: Dockerfile
+    ports:
+      - "5502:5502"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net9-minapi-dapper-jit-v2.1.35:
+    build:
+      context: ./net9-minapi-dapper-jit-v2.1.35
+      dockerfile: Dockerfile
+    ports:
+      - "5503:5503"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net9-minapi-norm-jit-v5.4.0:
+    build:
+      context: ./net9-minapi-norm-jit-v5.4.0
+      dockerfile: Dockerfile
+    ports:
+      - "5504:5504"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net9-minapi-ado-jit-v8.0.5:
+    build:
+      context: ./net9-minapi-ado-jit-v8.0.5
+      dockerfile: Dockerfile
+    ports:
+      - "5505:5505"
     depends_on:
       postgres:
         condition: service_healthy
@@ -295,7 +367,13 @@ services:
       - go-app-v1.22.9
       - rust-app-v1.75.0
       - java21-spring-boot-v3.2.2
-      - perl-net-server-prefork
+      # - perl-net-server-prefork-v5.34
+      - npgsqlrest-aot-v2.3.0
+      - net9-npgsqlrest-jit-v2.13.0
+      - net9-minapi-ef-jit-v8.0.10
+      - net9-minapi-dapper-jit-v2.1.35
+      - net9-minapi-norm-jit-v5.4.0
+      - net9-minapi-ado-jit-v8.0.5
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:

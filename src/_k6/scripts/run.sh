@@ -72,8 +72,32 @@ echo "Starting java21-spring-boot-v3.2.2..."
 k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=java21-spring-boot-v3.2.2 -e PORT=5400
 
 sleep 2
-echo "Starting perl-net-server-prefork..."
-k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=perl-net-server-prefork -e PORT=8088
+echo "Starting perl-net-server-prefork-v5.34..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=perl-net-server-prefork-v5.34 -e PORT=8088
+
+sleep 2
+echo "Starting npgsqlrest-aot-v2.3.0..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=npgsqlrest-aot-v2.3.0 -e PORT=5500
+
+sleep 2
+echo "Starting net9-npgsqlrest-jit-v2.13.0..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net9-npgsqlrest-jit-v2.13.0 -e PORT=5501
+
+sleep 2
+echo "Starting net9-minapi-ef-jit-v8.0.10..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net9-minapi-ef-jit-v8.0.10 -e PORT=5502
+
+sleep 2
+echo "Starting net9-minapi-dapper-jit-v2.1.35..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net9-minapi-dapper-jit-v2.1.35 -e PORT=5503
+
+sleep 2
+echo "Starting net9-minapi-norm-jit-v5.4.0..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net9-minapi-norm-jit-v5.4.0 -e PORT=5504
+
+sleep 2
+echo "Starting net9-minapi-ado-jit-v8.0.5..."
+k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=net9-minapi-ado-jit-v8.0.5 -e PORT=5505
 
 OUTPUT_FILE="/results/$STAMP.csv"
 > "$OUTPUT_FILE"

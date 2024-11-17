@@ -1,0 +1,23 @@
+     ✗ perl-net-server-prefork-v5.34 status is 200
+      ↳  0% — ✓ 0 / ✗ 1629
+     ✗ perl-net-server-prefork-v5.34 response is JSON
+      ↳  0% — ✓ 0 / ✗ 1629
+     ✗ perl-net-server-prefork-v5.34 response has data
+      ↳  0% — ✓ 0 / ✗ 1629
+
+     checks.....................: 0.00%   ✓ 0          ✗ 4887 
+     data_received..............: 0 B     0 B/s
+     data_sent..................: 0 B     0 B/s
+     http_req_blocked...........: avg=0s      min=0s       med=0s    max=0s       p(90)=0s     p(95)=0s     
+     http_req_connecting........: avg=0s      min=0s       med=0s    max=0s       p(90)=0s     p(95)=0s     
+   ✓ http_req_duration..........: avg=0s      min=0s       med=0s    max=0s       p(90)=0s     p(95)=0s     
+   ✗ http_req_failed............: 100.00% ✓ 1629       ✗ 0    
+     http_req_receiving.........: avg=0s      min=0s       med=0s    max=0s       p(90)=0s     p(95)=0s     
+     http_req_sending...........: avg=0s      min=0s       med=0s    max=0s       p(90)=0s     p(95)=0s     
+     http_req_tls_handshaking...: avg=0s      min=0s       med=0s    max=0s       p(90)=0s     p(95)=0s     
+     http_req_waiting...........: avg=0s      min=0s       med=0s    max=0s       p(90)=0s     p(95)=0s     
+     http_reqs..................: 1629    819.987147/s
+     iteration_duration.........: avg=12.41ms min=569.28µs med=7.9ms max=170.81ms p(90)=20.5ms p(95)=29.65ms
+     iterations.................: 1629    819.987147/s
+     vus........................: 20      min=10       max=20 
+     vus_max....................: 100     min=100      max=100
