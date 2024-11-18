@@ -41,8 +41,8 @@ export default function () {
     check(res, {
         [`${tag} status is 200`]: (r) => r.status === 200,
         [`${tag} response is JSON`]: (r) => r.headers['Content-Type'] && r.headers['Content-Type'].includes('application/json'),
-        [`${tag} response has data`]: (r) => r.body && JSON.parse(r.body).length > 0,
-        [`${tag} response data has all fields`]: (r) => {
+        [`${tag} response has all data records`]: (r) => r.body && JSON.parse(r.body).length == records,
+        [`${tag} response first item has all fields`]: (r) => {
             let d = JSON.parse(r.body)[0];
             return d.id1 && d.foo1 && d.bar1 && d.datetime1 && d.id2 && d.foo2 && d.bar2 && d.datetime2 && d.long_foo_bar && d.is_foobar;
         }

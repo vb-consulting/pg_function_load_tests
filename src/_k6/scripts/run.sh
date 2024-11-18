@@ -9,11 +9,11 @@ echo "*** Starting k6 tests, output will be saved in /results/$STAMP"
 
 for records in 10 50 500; do # records retrieved
 for target in 1 50 100; do # target number of virtual users VUs
-for duration in 5s 60s 120s; do # for duration in 5s 60s 120s; do # duration of the test
+for duration in 10s 60s 120s; do # for duration in 5s 60s 120s; do # duration of the test
 while read -r tag port; do
     echo "*** Running $tag:$port with $records records, $target VUs, and $duration duration"
     k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=$tag -e PORT=$port -e RECORDS=$records -e DURATION=$duration -e TARGET=$target
-    sleep 60
+    sleep 10 # sleep for 10 seconds between tests
 done << EOF
 django-app-v5.0.9 8000
 express-app-v4.18.2 3100
@@ -48,8 +48,8 @@ OUTPUT_FILE="/results/$STAMP.md"
 echo "*** processing results... Saving to $OUTPUT_FILE"
 
 # `|${tag}|${target}|${duration}|${records}|${reqs}|${reqsPerSec}|${reqsDuration}|${failedReqs}|[summary](/${stamp}/${fileTag}_summary.txt)|`
-echo "| Service | VUs | Duration | Retrived Records | Total Requests | Requests Per Second | Average Duration | Failed Requests |  |" >> "$OUTPUT_FILE"
-echo "|---------|----:|---------:|-----------------:|---------------:|--------------------:|-----------------:|----------------:|--|" >> "$OUTPUT_FILE"
+echo "| Service | Virtual Users | Duration | Retrived Records | Total Requests | Requests Per Second | Average Duration | Failed Requests | Summary Link |" >> "$OUTPUT_FILE"
+echo "|---------|--------------:|---------:|-----------------:|---------------:|--------------------:|-----------------:|----------------:|--------------|" >> "$OUTPUT_FILE"
 
 if ls /results/$STAMP/*.md 1> /dev/null 2>&1; then
     for file in /results/$STAMP/*.md; do
