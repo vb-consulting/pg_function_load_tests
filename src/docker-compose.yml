@@ -103,22 +103,22 @@ services:
     networks:
       - test_network
 
-  # deno-app-v1.40.2:
-  #   build:
-  #     context: ./deno-app-v1.40.2
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3102:3102"
-  #   environment:
-  #     - DB_HOST=postgres
-  #     - DB_NAME=testdb
-  #     - DB_USER=testuser
-  #     - DB_PASSWORD=testpass
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  #   networks:
-  #     - test_network
+  deno-app-v1.40.2:
+    build:
+      context: ./deno-app-v1.40.2
+      dockerfile: Dockerfile
+    ports:
+      - "3102:3102"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
 
   swoole-php-app-8.3.13:
     build:
@@ -252,22 +252,22 @@ services:
     networks:
       - test_network
 
-  # perl-net-server-prefork-v5.34:
-  #   build: 
-  #     context: ./perl-net-server-prefork-v5.34
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "8088:8088"
-  #   environment:
-  #     - DB_HOST=postgres
-  #     - DB_NAME=testdb
-  #     - DB_USER=testuser
-  #     - DB_PASSWORD=testpass
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  #   networks:
-  #     - test_network
+  perl-net-server-prefork-v5.34:
+    build: 
+      context: ./perl-net-server-prefork-v5.34
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8088"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
 
   npgsqlrest-aot-v2.3.0:
     image: vbilopav/npgsqlrest:v2.3.0
@@ -346,17 +346,13 @@ services:
     volumes:
       - ./_k6/scripts:/scripts
       - ./_k6/results:/results
-    environment:
-      - RECORDS=25
-      - DURATION=10s
-      - TARGET=100
     depends_on:
       - django-app-v5.0.9
       - express-app-v4.18.2
       - postgrest-v12.2.3
       - fastapi-app-v0.103.2
       - fastify-app-v4.26.1
-      # - deno-app-v1.40.2
+      - deno-app-v1.40.2
       - swoole-php-app-8.3.13
       - npgsqlrest-aot-v2.2.1
       - net8-npgsqlrest-jit-v2.12.1
@@ -367,7 +363,7 @@ services:
       - go-app-v1.22.9
       - rust-app-v1.75.0
       - java21-spring-boot-v3.2.2
-      # - perl-net-server-prefork-v5.34
+      - perl-net-server-prefork-v5.34
       - npgsqlrest-aot-v2.3.0
       - net9-npgsqlrest-jit-v2.13.0
       - net9-minapi-ef-jit-v8.0.10
