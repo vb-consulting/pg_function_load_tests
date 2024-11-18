@@ -9,7 +9,7 @@ echo "*** Starting k6 tests, output will be saved in /results/$STAMP"
 
 for records in 10 50 500; do # records retrieved
 for target in 1 50 100; do # target number of virtual users VUs
-for duration in 1s; do # for duration in 5s 60s 120s; do # duration of the test
+for duration in 5s 60s 120s; do # for duration in 5s 60s 120s; do # duration of the test
 while read -r tag port; do
     echo "*** Running $tag:$port with $records records, $target VUs, and $duration duration"
     k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=$tag -e PORT=$port -e RECORDS=$records -e DURATION=$duration -e TARGET=$target
@@ -42,7 +42,6 @@ EOF
 done # duration of the test
 done # target number of virtual users VUs
 done # records retrieved
-
 
 OUTPUT_FILE="/results/$STAMP.md"
 > "$OUTPUT_FILE"

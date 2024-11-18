@@ -21,14 +21,11 @@ const url = 'http://' +  tag + ':' + port + path + "?" +
     .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
     .join('&');
 
-// define configuration
 export const options = {
-    // define thresholds
     thresholds: {
         http_req_failed: [{ threshold: "rate<0.01", abortOnFail: true }], // availability threshold for error rate
         http_req_duration: ["p(99)<1000"], // Latency threshold for percentile
     },
-    // define scenarios
     scenarios: {
         breaking: {
             executor: "ramping-vus",
