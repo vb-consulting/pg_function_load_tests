@@ -32,9 +32,9 @@ go-app-v1.22.9 5200
 rust-app-v1.75.0 5300
 java21-spring-boot-v3.2.2 5400
 perl-net-server-prefork-v5.34 8088
-npgsqlrest-aot-v2.3.0 5500
-net9-npgsqlrest-jit-v2.13.0 5501
-net9-minapi-ef-jit-v8.0.10 5502
+npgsqlrest-aot-v2.4.0 5500
+net9-npgsqlrest-jit-v2.13.1 5501
+net9-minapi-ef-jit-v9.0.1 5502
 net9-minapi-dapper-jit-v2.1.35 5503
 net9-minapi-norm-jit-v5.4.0 5504
 net9-minapi-ado-jit-v8.0.5 5505
