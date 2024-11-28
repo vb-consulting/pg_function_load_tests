@@ -430,3 +430,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+*.sln
+pg_function_load_tests.sln

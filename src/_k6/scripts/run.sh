@@ -9,7 +9,7 @@ echo "*** Starting k6 tests, output will be saved in /results/$STAMP"
 
 for records in 10 50 500; do # records retrieved
 for target in 1 50 100; do # target number of virtual users VUs
-for duration in 10s 60s 120s; do # for duration in 5s 60s 120s; do # duration of the test
+for duration in 60s; do # 10s 60s 120s; do # for duration in 5s 60s 120s; do # duration of the test
 while read -r tag port; do
     echo "*** Running $tag:$port with $records records, $target VUs, and $duration duration"
     k6 run /scripts/script.js -e STAMP=$STAMP -e TAG=$tag -e PORT=$port -e RECORDS=$records -e DURATION=$duration -e TARGET=$target
@@ -33,7 +33,9 @@ rust-app-v1.75.0 5300
 java21-spring-boot-v3.2.2 5400
 perl-net-server-prefork-v5.34 8088
 npgsqlrest-aot-v2.4.0 5500
+npgsqlrest-aot-v2.5.0 5506
 net9-npgsqlrest-jit-v2.13.1 5501
+net9-npgsqlrest-jit-v2.14.0 5507
 net9-minapi-ef-jit-v9.0.1 5502
 net9-minapi-dapper-jit-v2.1.35 5503
 net9-minapi-norm-jit-v5.4.0 5504

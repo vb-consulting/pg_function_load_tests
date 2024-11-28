@@ -7,12 +7,7 @@ Console.WriteLine($"Npgsql: {System.Reflection.Assembly.GetAssembly(typeof(Npgsq
 var builder = WebApplication.CreateSlimBuilder(args);
 builder.WebHost.UseUrls("http://0.0.0.0:5505");
 builder.Logging.SetMinimumLevel(LogLevel.Warning);
-builder.Services.AddScoped(sp =>
-{
-    var connection = new NpgsqlConnection("Host=postgres;Port=5432;Username=testuser;Password=testpass;Database=testdb");
-    connection.Open();
-    return connection;
-});
+builder.Services.AddSingleton(new NpgsqlDataSourceBuilder("Host=postgres;Port=5432;Username=testuser;Password=testpass;Database=testdb").Build());
 var app = builder.Build();
 
 app.MapGet("/api/test-data", TestData.Get);
@@ -22,13 +17,14 @@ app.Run();
 public static class TestData
 {
     public static async IAsyncEnumerable<Result> Get(
-        NpgsqlConnection connection,
+        NpgsqlDataSource dataSource,
         [FromQuery] int _records,
         [FromQuery] string _text_param,
         [FromQuery] int _int_param,
         [FromQuery] DateTime _ts_param,
         [FromQuery] bool _bool_param)
     {
+        await using var connection = await dataSource.OpenConnectionAsync();
         using var command = connection.CreateCommand();
         command.CommandText =
             """
