@@ -50,7 +50,7 @@ OUTPUT_FILE="/results/$STAMP.md"
 echo "*** processing results... Saving to $OUTPUT_FILE"
 
 # `|${tag}|${target}|${duration}|${records}|${reqs}|${reqsPerSec}|${reqsDuration}|${failedReqs}|[summary](/${stamp}/${fileTag}_summary.txt)|`
-echo "| Service | Virtual Users | Duration | Retrived Records | Total Requests | Requests Per Second | Average Duration | Failed Requests | Summary Link |" >> "$OUTPUT_FILE"
+echo "| Service | Virtual Users | Duration | Records | Total Requests | Requests Per Second | Average Duration | Failed Requests | Summary Link |" >> "$OUTPUT_FILE"
 echo "|---------|--------------:|---------:|-----------------:|---------------:|--------------------:|-----------------:|----------------:|--------------|" >> "$OUTPUT_FILE"
 
 if ls /results/$STAMP/*.md 1> /dev/null 2>&1; then
