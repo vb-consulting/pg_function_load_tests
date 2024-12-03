@@ -40,6 +40,7 @@ net9-minapi-ef-jit-v9.0.1 5502
 net9-minapi-dapper-jit-v2.1.35 5503
 net9-minapi-norm-jit-v5.4.0 5504
 net9-minapi-ado-jit-v8.0.5 5505
+omnigres-master 8080
 EOF
 done # duration of the test
 done # target number of virtual users VUs

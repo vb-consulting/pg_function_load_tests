@@ -365,6 +365,15 @@ services:
     networks:
       - test_network
 
+  omnigres-master:
+    build:
+      context: ./omnigres-master
+      dockerfile: Dockerfile
+    ports:
+      - "18080:8080"
+    networks:
+      - test_network
+
   test:
     image: grafana/k6:latest
     volumes:
@@ -396,6 +405,7 @@ services:
       - net9-minapi-dapper-jit-v2.1.35
       - net9-minapi-norm-jit-v5.4.0
       - net9-minapi-ado-jit-v8.0.5
+      - omnigres-master
     entrypoint: ["/bin/sh"]
     command: ["-c", "tail -f /dev/null"]
     networks:
