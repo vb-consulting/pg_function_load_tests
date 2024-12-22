@@ -34,6 +34,7 @@ java21-spring-boot-v3.2.2 5400
 perl-net-server-prefork-v5.34 8088
 npgsqlrest-aot-v2.4.0 5500
 npgsqlrest-aot-v2.5.0 5506
+npgsqlrest-aot-v2.6.0 5508
 net9-npgsqlrest-jit-v2.13.1 5501
 net9-npgsqlrest-jit-v2.14.0 5507
 net9-minapi-ef-jit-v9.0.1 5502
