@@ -37,6 +37,7 @@ npgsqlrest-aot-v2.5.0 5506
 npgsqlrest-aot-v2.6.0 5508
 net9-npgsqlrest-jit-v2.13.1 5501
 net9-npgsqlrest-jit-v2.14.0 5507
+net9-npgsqlrest-jit-v2.15.0 5509
 net9-minapi-ef-jit-v9.0.1 5502
 net9-minapi-dapper-jit-v2.1.35 5503
 net9-minapi-norm-jit-v5.4.0 5504
