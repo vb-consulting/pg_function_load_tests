@@ -19,13 +19,11 @@ docker-compose exec test /bin/sh /scripts/run.sh
 
 Results will be saved to the `src/k6/results/` directory under the current timestamp subdirectory.
 
-## Results
+## Latest Results
 
-### Round 1 
-
-- [Test Branch](https://github.com/vb-consulting/pg_function_load_tests/tree/202411281042/src)
-- [Test Results Raw Output](https://github.com/vb-consulting/pg_function_load_tests/tree/202411281042/src/_k6/results)
-- [Parsed Tests Results Disucssion Thread](https://github.com/vb-consulting/pg_function_load_tests/discussions/2)
+- [Test Branch](https://github.com/vb-consulting/pg_function_load_tests/tree/202412231024/src)
+- [Test Results Raw Output](https://github.com/vb-consulting/pg_function_load_tests/blob/202412231024/src/_k6/results/202412231024.md)
+- [Parsed Tests Results Disucssion Thread](https://github.com/vb-consulting/pg_function_load_tests/discussions/5)
 
 ## License
 
