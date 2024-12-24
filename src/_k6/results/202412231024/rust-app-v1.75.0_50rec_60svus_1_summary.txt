@@ -1,0 +1,22 @@
+     ✓ rust-app-v1.75.0 status is 200
+     ✓ rust-app-v1.75.0 response is JSON
+     ✓ rust-app-v1.75.0 response has all data records
+     ✓ rust-app-v1.75.0 response first item has all fields
+
+     checks.........................: 100.00% ✓ 13816     ✗ 0   
+     data_received..................: 56 MB   938 kB/s
+     data_sent......................: 788 kB  13 kB/s
+     http_req_blocked...............: avg=6.31µs  min=2.12µs  med=5.39µs  max=1.24ms   p(90)=7.42µs   p(95)=8.2µs   
+     http_req_connecting............: avg=154ns   min=0s      med=0s      max=532.71µs p(90)=0s       p(95)=0s      
+   ✓ http_req_duration..............: avg=13.86ms min=6.81ms  med=15.26ms max=21.4ms   p(90)=15.77ms  p(95)=15.99ms 
+       { expected_response:true }...: avg=13.86ms min=6.81ms  med=15.26ms max=21.4ms   p(90)=15.77ms  p(95)=15.99ms 
+   ✓ http_req_failed................: 0.00%   ✓ 0         ✗ 3454
+     http_req_receiving.............: avg=98.09µs min=32.42µs med=90.43µs max=699.56µs p(90)=142.18µs p(95)=161.78µs
+     http_req_sending...............: avg=19.51µs min=6.67µs  med=16.97µs max=373.73µs p(90)=24.39µs  p(95)=34.83µs 
+     http_req_tls_handshaking.......: avg=0s      min=0s      med=0s      max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=13.74ms min=6.76ms  med=15.14ms max=21.29ms  p(90)=15.64ms  p(95)=15.84ms 
+     http_reqs......................: 3454    57.548254/s
+     iteration_duration.............: avg=17.35ms min=8.16ms  med=18.53ms max=26.66ms  p(90)=20.78ms  p(95)=21.15ms 
+     iterations.....................: 3454    57.548254/s
+     vus............................: 1       min=1       max=1 
+     vus_max........................: 1       min=1       max=1 
