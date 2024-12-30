@@ -305,6 +305,18 @@ services:
     networks:
       - test_network
 
+  npgsqlrest-aot-v2.7.0:
+    image: vbilopav/npgsqlrest:v2.7.0
+    ports:
+      - "5510:5510"
+    volumes:
+      - ./npgsqlrest-aot-v2.7.0/appsettings.json:/app/appsettings.json
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
   net9-npgsqlrest-jit-v2.13.1:
     build:
       context: ./net9-npgsqlrest-jit-v2.13.1
@@ -335,6 +347,18 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5509:5509"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - test_network
+
+  net9-npgsqlrest-jit-v2.16.0:
+    build:
+      context: ./net9-npgsqlrest-jit-v2.16.0
+      dockerfile: Dockerfile
+    ports:
+      - "5511:5511"
     depends_on:
       postgres:
         condition: service_healthy
@@ -424,9 +448,11 @@ services:
       - npgsqlrest-aot-v2.4.0
       - npgsqlrest-aot-v2.5.0
       - npgsqlrest-aot-v2.6.0
+      - npgsqlrest-aot-v2.7.0
       - net9-npgsqlrest-jit-v2.13.1
       - net9-npgsqlrest-jit-v2.14.0
       - net9-npgsqlrest-jit-v2.15.0
+      - net9-npgsqlrest-jit-v2.16.0
       - net9-minapi-ef-jit-v9.0.1
       - net9-minapi-dapper-jit-v2.1.35
       - net9-minapi-norm-jit-v5.4.0
