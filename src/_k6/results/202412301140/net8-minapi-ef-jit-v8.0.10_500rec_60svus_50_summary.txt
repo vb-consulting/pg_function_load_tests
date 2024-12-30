@@ -1,0 +1,22 @@
+     ✓ net8-minapi-ef-jit-v8.0.10 status is 200
+     ✓ net8-minapi-ef-jit-v8.0.10 response is JSON
+     ✓ net8-minapi-ef-jit-v8.0.10 response has all data records
+     ✓ net8-minapi-ef-jit-v8.0.10 response first item has all fields
+
+     checks.........................: 100.00% ✓ 47080      ✗ 0    
+     data_received..................: 1.9 GB  32 MB/s
+     data_sent......................: 2.8 MB  47 kB/s
+     http_req_blocked...............: avg=45.38µs  min=1.81µs  med=4.85µs  max=103.41ms p(90)=6.96µs   p(95)=9.49µs  
+     http_req_connecting............: avg=26.71µs  min=0s      med=0s      max=103.35ms p(90)=0s       p(95)=0s      
+   ✓ http_req_duration..............: avg=24.83ms  min=2.66ms  med=11.66ms max=727.36ms p(90)=55ms     p(95)=105.08ms
+       { expected_response:true }...: avg=24.83ms  min=2.66ms  med=11.66ms max=727.36ms p(90)=55ms     p(95)=105.08ms
+   ✓ http_req_failed................: 0.00%   ✓ 0          ✗ 11770
+     http_req_receiving.............: avg=14.56ms  min=94.87µs med=1.69ms  max=718.34ms p(90)=40.52ms  p(95)=89.83ms 
+     http_req_sending...............: avg=788.36µs min=6.96µs  med=16.06µs max=504.98ms p(90)=32.06µs  p(95)=92.38µs 
+     http_req_tls_handshaking.......: avg=0s       min=0s      med=0s      max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=9.47ms   min=1.18ms  med=7.56ms  max=66.99ms  p(90)=18.48ms  p(95)=23.24ms 
+     http_reqs......................: 11770   195.726135/s
+     iteration_duration.............: avg=127.7ms  min=16.96ms med=86.24ms max=1.07s    p(90)=275.14ms p(95)=359.72ms
+     iterations.....................: 11770   195.726135/s
+     vus............................: 49      min=1        max=49 
+     vus_max........................: 50      min=50       max=50 

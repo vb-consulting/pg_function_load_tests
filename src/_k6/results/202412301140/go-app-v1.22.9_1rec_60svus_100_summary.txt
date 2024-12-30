@@ -1,0 +1,22 @@
+     ✓ go-app-v1.22.9 status is 200
+     ✓ go-app-v1.22.9 response is JSON
+     ✓ go-app-v1.22.9 response has all data records
+     ✓ go-app-v1.22.9 response first item has all fields
+
+     checks.........................: 100.00% ✓ 359556      ✗ 0    
+     data_received..................: 39 MB   643 kB/s
+     data_sent......................: 20 MB   336 kB/s
+     http_req_blocked...............: avg=4.72µs  min=1.6µs    med=3.18µs  max=6.09ms   p(90)=4.18µs   p(95)=4.83µs  
+     http_req_connecting............: avg=479ns   min=0s       med=0s      max=6.04ms   p(90)=0s       p(95)=0s      
+   ✓ http_req_duration..............: avg=33.19ms min=670.66µs med=8.63ms  max=512.43ms p(90)=123.39ms p(95)=173.42ms
+       { expected_response:true }...: avg=33.19ms min=670.66µs med=8.63ms  max=512.43ms p(90)=123.39ms p(95)=173.42ms
+   ✓ http_req_failed................: 0.00%   ✓ 0           ✗ 89889
+     http_req_receiving.............: avg=46.96µs min=13.71µs  med=33.19µs max=14.6ms   p(90)=54.84µs  p(95)=68.91µs 
+     http_req_sending...............: avg=15.95µs min=4.89µs   med=9.96µs  max=12.69ms  p(90)=17.85µs  p(95)=24.07µs 
+     http_req_tls_handshaking.......: avg=0s      min=0s       med=0s      max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=33.13ms min=626.91µs med=8.57ms  max=512.39ms p(90)=123.31ms p(95)=173.37ms
+     http_reqs......................: 89889   1495.071183/s
+     iteration_duration.............: avg=33.43ms min=812.83µs med=8.87ms  max=512.61ms p(90)=123.64ms p(95)=173.64ms
+     iterations.....................: 89889   1495.071183/s
+     vus............................: 99      min=2         max=99 
+     vus_max........................: 100     min=100       max=100
