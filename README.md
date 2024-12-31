@@ -8,13 +8,21 @@ This project performs load performance testing for Web APIs on different tech st
 git clone https://github.com/vb-consulting/pg_function_load_tests.git
 cd pg_function_load_tests
 cd src
-docker-compose down && docker-compose up --build
+docker-compose down && docker-compose up --build --detach
 ```
 
 Please wait a few seconds for all services to initialize properly (health check isn't implemented yet), and then run from the same directory:
 
 ```
 docker-compose exec test /bin/sh /scripts/run.sh
+```
+
+Keep it running on server:
+```
+tmux              # Start a new tmux session
+# Run your command
+docker-compose exec test /bin/sh /scripts/run.sh
+# Press Ctrl+B, then D to detach
 ```
 
 Results will be saved to the `src/k6/results/` directory under the current timestamp subdirectory.
