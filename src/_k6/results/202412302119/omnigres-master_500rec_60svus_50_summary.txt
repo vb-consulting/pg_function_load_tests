@@ -1,0 +1,22 @@
+     ✓ omnigres-master status is 200
+     ✓ omnigres-master response is JSON
+     ✓ omnigres-master response has all data records
+     ✓ omnigres-master response first item has all fields
+
+     checks.........................: 100.00% ✓ 73672      ✗ 0    
+     data_received..................: 3.0 GB  50 MB/s
+     data_sent......................: 4.2 MB  70 kB/s
+     http_req_blocked...............: avg=32.57µs  min=1.36µs  med=3.23µs   max=102.99ms p(90)=4.24µs   p(95)=6.06µs  
+     http_req_connecting............: avg=9.23µs   min=0s      med=0s       max=21.31ms  p(90)=0s       p(95)=0s      
+   ✓ http_req_duration..............: avg=15.82ms  min=1.77ms  med=6.75ms   max=542.25ms p(90)=36.39ms  p(95)=69.87ms 
+       { expected_response:true }...: avg=15.82ms  min=1.77ms  med=6.75ms   max=542.25ms p(90)=36.39ms  p(95)=69.87ms 
+   ✓ http_req_failed................: 0.00%   ✓ 0          ✗ 18418
+     http_req_receiving.............: avg=8.33ms   min=37.81µs med=195.52µs max=528.89ms p(90)=23.74ms  p(95)=58.5ms  
+     http_req_sending...............: avg=398.33µs min=4.48µs  med=10.67µs  max=242.24ms p(90)=21.7µs   p(95)=63.68µs 
+     http_req_tls_handshaking.......: avg=0s       min=0s      med=0s       max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=7.09ms   min=1.66ms  med=5.77ms   max=44.76ms  p(90)=13.05ms  p(95)=16.16ms 
+     http_reqs......................: 18418   306.539523/s
+     iteration_duration.............: avg=81.52ms  min=11.48ms med=53.84ms  max=921.06ms p(90)=174.32ms p(95)=231.93ms
+     iterations.....................: 18418   306.539523/s
+     vus............................: 49      min=1        max=49 
+     vus_max........................: 50      min=50       max=50 

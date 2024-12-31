@@ -1,0 +1,22 @@
+     ✓ perl-net-server-prefork-v5.34 status is 200
+     ✓ perl-net-server-prefork-v5.34 response is JSON
+     ✓ perl-net-server-prefork-v5.34 response has all data records
+     ✓ perl-net-server-prefork-v5.34 response first item has all fields
+
+     checks.........................: 100.00% ✓ 121048     ✗ 0    
+     data_received..................: 12 MB   193 kB/s
+     data_sent......................: 7.4 MB  124 kB/s
+     http_req_blocked...............: avg=327.65µs min=96.1µs   med=321.58µs max=3.44ms   p(90)=383.16µs p(95)=405.54µs
+     http_req_connecting............: avg=241.06µs min=0s       med=241.96µs max=3.35ms   p(90)=288.83µs p(95)=305.42µs
+   ✓ http_req_duration..............: avg=1.41ms   min=493.42µs med=1.41ms   max=20.58ms  p(90)=1.52ms   p(95)=1.59ms  
+       { expected_response:true }...: avg=1.41ms   min=493.42µs med=1.41ms   max=20.58ms  p(90)=1.52ms   p(95)=1.59ms  
+   ✓ http_req_failed................: 0.00%   ✓ 0          ✗ 30262
+     http_req_receiving.............: avg=62.57µs  min=14.95µs  med=57.1µs   max=671.34µs p(90)=87.13µs  p(95)=107.29µs
+     http_req_sending...............: avg=82.46µs  min=12.7µs   med=73.31µs  max=2.85ms   p(90)=98.35µs  p(95)=116.84µs
+     http_req_tls_handshaking.......: avg=0s       min=0s       med=0s       max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=1.26ms   min=449.28µs med=1.27ms   max=20.31ms  p(90)=1.37ms   p(95)=1.42ms  
+     http_reqs......................: 30262   504.344071/s
+     iteration_duration.............: avg=1.96ms   min=713.83µs med=1.97ms   max=21.23ms  p(90)=2.11ms   p(95)=2.2ms   
+     iterations.....................: 30262   504.344071/s
+     vus............................: 1       min=1        max=1  
+     vus_max........................: 1       min=1        max=1  
