@@ -1,0 +1,22 @@
+     ✓ net8-npgsqlrest-jit-v2.12.1 status is 200
+     ✓ net8-npgsqlrest-jit-v2.12.1 response is JSON
+     ✓ net8-npgsqlrest-jit-v2.12.1 response has all data records
+     ✓ net8-npgsqlrest-jit-v2.12.1 response first item has all fields
+
+     checks.........................: 100.00% ✓ 141684     ✗ 0    
+     data_received..................: 17 MB   279 kB/s
+     data_sent......................: 8.4 MB  141 kB/s
+     http_req_blocked...............: avg=4.68µs  min=1.27µs   med=3.96µs  max=1.21ms   p(90)=5.55µs  p(95)=6.07µs 
+     http_req_connecting............: avg=15ns    min=0s       med=0s      max=543.93µs p(90)=0s      p(95)=0s     
+   ✓ http_req_duration..............: avg=1.43ms  min=668.01µs med=1.42ms  max=135.12ms p(90)=1.57ms  p(95)=1.64ms 
+       { expected_response:true }...: avg=1.43ms  min=668.01µs med=1.42ms  max=135.12ms p(90)=1.57ms  p(95)=1.64ms 
+   ✓ http_req_failed................: 0.00%   ✓ 0          ✗ 35421
+     http_req_receiving.............: avg=63.11µs min=18.4µs   med=58.51µs max=16.93ms  p(90)=83.18µs p(95)=97.48µs
+     http_req_sending...............: avg=14.73µs min=4.09µs   med=12.22µs max=471.77µs p(90)=20.26µs p(95)=26.42µs
+     http_req_tls_handshaking.......: avg=0s      min=0s       med=0s      max=0s       p(90)=0s      p(95)=0s     
+     http_req_waiting...............: avg=1.36ms  min=643.35µs med=1.34ms  max=118.09ms p(90)=1.49ms  p(95)=1.56ms 
+     http_reqs......................: 35421   590.336826/s
+     iteration_duration.............: avg=1.68ms  min=747.31µs med=1.66ms  max=136.96ms p(90)=1.83ms  p(95)=1.92ms 
+     iterations.....................: 35421   590.336826/s
+     vus............................: 1       min=1        max=1  
+     vus_max........................: 1       min=1        max=1  
