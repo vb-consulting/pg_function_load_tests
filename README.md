@@ -29,9 +29,9 @@ Results will be saved to the `src/k6/results/` directory under the current times
 
 ## Latest Results
 
-- [Test Branch](https://github.com/vb-consulting/pg_function_load_tests/tree/202412231024/src)
-- [Test Results Raw Output](https://github.com/vb-consulting/pg_function_load_tests/blob/202412231024/src/_k6/results/202412231024.md)
-- [Parsed Tests Results Disucssion Thread](https://github.com/vb-consulting/pg_function_load_tests/discussions/5)
+- [Test Branch](https://github.com/vb-consulting/pg_function_load_tests/tree/202412302119)
+- [Test Results Raw Output](https://github.com/vb-consulting/pg_function_load_tests/blob/202412302119/src/_k6/results/202412302119.md)
+- [Parsed Tests Results Disucssion Thread](https://github.com/vb-consulting/pg_function_load_tests/discussions/8)
 
 ## License
 
